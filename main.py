@@ -46,5 +46,5 @@ try:
 
 
 except KeyboardInterrupt:
-    print(f"\n*{localization["toolstopped"]}*")
+    print(f"\n*{localization['toolstopped']}*")
     reader_instance.exceptions_handle()
