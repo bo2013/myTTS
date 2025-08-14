@@ -28,7 +28,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install playsound==1.2.2 gTTS importlib-metadata
+        pip install playsound==1.2.2 gTTS importlib-metadata pygobject
       shell: bash
 
     - name: Run script
