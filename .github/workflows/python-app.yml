@@ -1,0 +1,47 @@
+name: Run test on multiple OS
+
+on:
+  push:
+    branches: [ "v.0.1" ]
+  pull_request:
+    branches: [ "v.0.1" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.10"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install playsound==1.2.2 gTTS importlib-metadata
+      shell: bash
+
+    - name: Run script
+      run: |
+        python main.py
+      shell: bash
+
+    - name: Check exit code
+      run: |
+        if [ $? -eq 0 ]; then
+          echo "✅ OK: Script ran successfully"
+        else
+          echo "❌ FAIL: Script failed"
+          exit 1
+        fi
+      shell: bash
