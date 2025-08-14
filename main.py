@@ -33,7 +33,7 @@ if os.path.exists(tool):
     spec.loader.exec_module(module)
     reader_instance = module.Reader(reader_options)
 else:
-    print(localization["filenotfound"])
+    print(localization['filenotfound'])
     exit(1)
 
 try:
