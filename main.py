@@ -10,8 +10,8 @@ tool = "gtts_reader.py"
 
 # Put your text here
 text = """
-Xin chào, hôm nay tôi sẽ làm 1 công cụ để chuyển đổi văn bản thành giọng nói bằng Python.
-Tôi sẽ sử dụng thư viện gTTS để thực hiện việc này.
+Hello, this is an example text.
+You can change it
 """
 
 # Some options that required by reader file
